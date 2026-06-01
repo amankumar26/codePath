@@ -1,0 +1,529 @@
+{
+  "id": "html-cert",
+  "title": "HTML Certification",
+  "description": "Learn the building blocks of web development, from text elements to forms, tables, and page layout.",
+  "modules": [
+    {
+      "id": "html-basics",
+      "title": "HTML Basics",
+      "lessons": [
+        {
+          "id": "html-intro",
+          "title": "Introduction to HTML",
+          "explanation": "Welcome to web development! HTML stands for **HyperText Markup Language**. It is a markup language used to structure and lay out content on a webpage, rather than a programming language (which executes program logic). Every standard webpage uses the `<html>` tag as the root element to wrap all other elements on the page.",
+          "examples": "A basic HTML element has an opening tag, content, and a closing tag. The `<html>` tag acts as the root container:\n\n```html\n<html>\n  <p>This is a paragraph inside the root HTML element.</p>\n</html>\n```",
+          "tips": "Every HTML tag starts with a `<` and ends with `>`. Closing tags also include a forward slash `/` before the tag name.",
+          "challenge": "Create a paragraph (`p`) element containing the text 'Welcome to codePath'.",
+          "starterCode": "<html>\n  <head>\n    <title>Introduction</title>\n  </head>\n  <body>\n    <!-- Write your HTML code below this line -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "Your code should contain a paragraph (<p>) element.",
+              "assertion": "const p = doc.querySelector('p'); return !!p;"
+            },
+            {
+              "description": "Your paragraph element should contain the text 'Welcome to codePath'.",
+              "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim().replace(/\\s+/g, ' ') === 'Welcome to codePath';"
+            }
+          ]
+        },
+        {
+          "id": "html-structure",
+          "title": "HTML Document Structure",
+          "explanation": "Every HTML document requires a specific skeleton to be understood correctly by browsers. The `<html>` element is the **root element** of the page and wraps all other elements. Inside the `<html>` root, a page is divided into two sections:\n1. The `<head>` tag: Contains metadata, search settings, and links to stylesheets. This section is invisible to users viewing the page.\n2. The `<body>` tag: Contains all visible elements (headings, text, images, forms, and links) that users interact with.",
+          "examples": "A complete HTML document structure looks like this:\n\n```html\n<html>\n  <head>\n    <!-- Document settings go here -->\n  </head>\n  <body>\n    <!-- Visible content goes here -->\n  </body>\n</html>\n```",
+          "tips": "Browsers rely on this structure to parse and render the webpage properly. The body tag is where all the visuals live.",
+          "challenge": "Create a complete HTML skeleton. Inside the provided `<html>` tags, add a `<head>` element, followed by a `<body>` element.",
+          "starterCode": "<html>\n  <!-- Create a head and body element inside -->\n</html>\n",
+          "language": "html",
+          "tests": [
+            {
+              "description": "Your code should contain an opening and closing <html> tag.",
+              "assertion": "return /<html>/i.test(code) && /<\\/html>/i.test(code);"
+            },
+            {
+              "description": "Your code should contain an opening and closing <head> tag.",
+              "assertion": "return /<head>/i.test(code) && /<\\/head>/i.test(code);"
+            },
+            {
+              "description": "Your code should contain an opening and closing <body> tag.",
+              "assertion": "return /<body>/i.test(code) && /<\\/body>/i.test(code);"
+            },
+            {
+              "description": "Your <head> and <body> elements must be nested inside the <html> element.",
+              "assertion": "const html = doc.querySelector('html'); return html && html.querySelector('head') && html.querySelector('body');"
+            }
+          ]
+        },
+        {
+          "id": "html-headings",
+          "title": "HTML Headings",
+          "explanation": "HTML headings are defined with the `<h1>` to `<h6>` tags. `<h1>` defines the most important heading (usually the largest), while `<h6>` defines the least important heading (usually the smallest). Headings help search engines understand the structure of your content.",
+          "examples": "```html\n<h1>Main Heading</h1>\n<h2>Sub Heading</h2>\n```",
+          "tips": "Only use one `<h1>` per page for search engine optimization (SEO) best practices.",
+          "challenge": "Create an `h1` heading element containing the text 'codePath' and an `h2` heading element containing the text 'Interactive Editor'.",
+          "starterCode": "<html>\n  <head>\n    <title>My Headings</title>\n  </head>\n  <body>\n    <!-- Write your HTML headings below this line -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create an <h1> element.",
+              "assertion": "const h1 = doc.querySelector('h1'); return !!h1;"
+            },
+            {
+              "description": "Your <h1> element should contain the text 'codePath'.",
+              "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === 'codePath';"
+            },
+            {
+              "description": "You should create an <h2> element.",
+              "assertion": "const h2 = doc.querySelector('h2'); return !!h2;"
+            },
+            {
+              "description": "Your <h2> element should contain the text 'Interactive Editor'.",
+              "assertion": "const h2 = doc.querySelector('h2'); return h2 && h2.textContent.trim() === 'Interactive Editor';"
+            }
+          ]
+        },
+        {
+          "id": "html-paragraphs",
+          "title": "HTML Paragraphs",
+          "explanation": "The HTML `<p>` element defines a paragraph. Paragraphs are **block-level** elements. This means they always start on a new line and stretch out to take up the full available width of their container. Browsers also automatically add vertical margins before and after paragraphs.",
+          "examples": "```html\n<p>This is the first paragraph.</p>\n<p>This is the second paragraph.</p>\n```",
+          "tips": "White spaces or multiple lines inside a `<p>` element will be collapsed by the browser into a single space.",
+          "challenge": "Create two separate paragraph (`p`) elements. The first should contain 'Start small.', and the second should contain 'Dream big.'.",
+          "starterCode": "<html>\n  <head>\n    <title>My Paragraphs</title>\n  </head>\n  <body>\n    <!-- Write your paragraph elements below this line -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create two <p> elements.",
+              "assertion": "return doc.querySelectorAll('p').length === 2;"
+            },
+            {
+              "description": "The first paragraph should contain the text 'Start small.'.",
+              "assertion": "const ps = doc.querySelectorAll('p'); return ps[0] && ps[0].textContent.trim() === 'Start small.';"
+            },
+            {
+              "description": "The second paragraph should contain the text 'Dream big.'.",
+              "assertion": "const ps = doc.querySelectorAll('p'); return ps[1] && ps[1].textContent.trim() === 'Dream big.';"
+            }
+          ]
+        },
+        {
+          "id": "html-basics-workshop",
+          "title": "Build a Personal Portfolio Page",
+          "type": "workshop",
+          "explanation": "In this workshop, you will build a personal portfolio landing page step-by-step using headings and paragraphs.",
+          "steps": [
+            {
+              "step": 1,
+              "title": "Main Heading",
+              "challenge": "Create an `h1` element containing the text 'John Doe's Portfolio'. This will be the main title of your page.",
+              "starterCode": "<html>\n  <head>\n    <title>Portfolio</title>\n  </head>\n  <body>\n    <!-- Write your HTML code below this line -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an <h1> element.",
+                  "assertion": "const h1 = doc.querySelector('h1'); return !!h1;"
+                },
+                {
+                  "description": "Your <h1> element should contain the text 'John Doe\\'s Portfolio'.",
+                  "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === \"John Doe's Portfolio\";"
+                }
+              ]
+            },
+            {
+              "step": 2,
+              "title": "Section Subheading",
+              "challenge": "Below your `h1` element, add an `h2` subheading containing the text 'About Me'.",
+              "starterCode": "<html>\n  <head>\n    <title>Portfolio</title>\n  </head>\n  <body>\n    <h1>John Doe's Portfolio</h1>\n    <!-- Write your h2 below -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should still contain the <h1> element with 'John Doe\\'s Portfolio'.",
+                  "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === \"John Doe's Portfolio\";"
+                },
+                {
+                  "description": "Your code should contain an <h2> element.",
+                  "assertion": "const h2 = doc.querySelector('h2'); return !!h2;"
+                },
+                {
+                  "description": "Your <h2> element should contain the text 'About Me'.",
+                  "assertion": "const h2 = doc.querySelector('h2'); return h2 && h2.textContent.trim() === 'About Me';"
+                }
+              ]
+            },
+            {
+              "step": 3,
+              "title": "Introductory Paragraph",
+              "challenge": "Below your `h2` element, add a paragraph (`p`) element containing the text 'I am a web developer learning HTML on codePath!'.",
+              "starterCode": "<html>\n  <head>\n    <title>Portfolio</title>\n  </head>\n  <body>\n    <h1>John Doe's Portfolio</h1>\n    <h2>About Me</h2>\n    <!-- Write your p element below -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an <h1> and <h2> element with correct texts.",
+                  "assertion": "const h1 = doc.querySelector('h1'); const h2 = doc.querySelector('h2'); return h1 && h1.textContent.trim() === \"John Doe's Portfolio\" && h2 && h2.textContent.trim() === 'About Me';"
+                },
+                {
+                  "description": "Your code should contain a <p> element.",
+                  "assertion": "const p = doc.querySelector('p'); return !!p;"
+                },
+                {
+                  "description": "Your <p> element should contain the text 'I am a web developer learning HTML on codePath!'.",
+                  "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim() === 'I am a web developer learning HTML on codePath!';"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text-media",
+      "title": "Links, Images & Lists",
+      "lessons": [
+        {
+          "id": "html-links",
+          "title": "HTML Anchor Links",
+          "explanation": "HTML links are hyperlinks. You can click on a link to jump to another document or section. Links are defined with the `<a>` (anchor) tag. The key attribute is `href`, which specifies the destination URL. The text between the opening `<a>` and closing `</a>` tags is called the **anchor text** or **link text**, which is what the user clicks on.",
+          "examples": "```html\n<a href=\"https://www.google.com\">Visit Google</a>\n```",
+          "tips": "Add the attribute `target=\"_blank\"` to open the link in a new tab.",
+          "challenge": "Create a link (`a`) that points to 'https://codepath.com' and has the anchor text 'Explore codePath'.",
+          "starterCode": "<html>\n  <head>\n    <title>Hyperlinks</title>\n  </head>\n  <body>\n    <!-- Create your link element below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create an anchor (<a>) element.",
+              "assertion": "return doc.querySelector('a') !== null;"
+            },
+            {
+              "description": "Your anchor element should have an href attribute set to 'https://codepath.com'.",
+              "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://codepath.com';"
+            },
+            {
+              "description": "Your anchor element should have text content 'Explore codePath'.",
+              "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Explore codePath';"
+            }
+          ]
+        },
+        {
+          "id": "html-images",
+          "title": "HTML Images",
+          "explanation": "HTML images are defined with the `<img>` tag. The `<img>` tag is empty, which means it contains attributes only and does not have a closing tag. The `src` attribute specifies the URL of the image, and the `alt` attribute provides alternate text description if the image cannot be loaded.",
+          "examples": "```html\n<img src=\"https://example.com/logo.png\" alt=\"Company Logo\">\n```",
+          "tips": "The `alt` attribute is extremely important for accessibility (screen readers) and SEO.",
+          "challenge": "Create an image (`img`) element with the `src` set to 'https://images.unsplash.com/photo-1542831371-29b0f74f9713' and an `alt` description of 'Code on a screen'.",
+          "starterCode": "<html>\n  <head>\n    <title>Images</title>\n  </head>\n  <body>\n    <!-- Create your image element below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create an img element.",
+              "assertion": "return doc.querySelector('img') !== null;"
+            },
+            {
+              "description": "Your img element should have the correct src attribute.",
+              "assertion": "const img = doc.querySelector('img'); return img && img.getAttribute('src') === 'https://images.unsplash.com/photo-1542831371-29b0f74f9713';"
+            },
+            {
+              "description": "Your img element should have an alt attribute with 'Code on a screen'.",
+              "assertion": "const img = doc.querySelector('img'); return img && img.getAttribute('alt') === 'Code on a screen';"
+            }
+          ]
+        },
+        {
+          "id": "html-unordered-lists",
+          "title": "HTML Unordered Lists",
+          "explanation": "An unordered list starts with the `<ul>` tag. Each list item starts with the `<li>` tag. By default, the list items will be marked with bullets (small black circles).",
+          "examples": "```html\n<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n</ul>\n```",
+          "tips": "Unordered lists are commonly used to create navigation menus in web development.",
+          "challenge": "Create an unordered list containing three items: 'HTML', 'CSS', and 'JavaScript'.",
+          "starterCode": "<html>\n  <head>\n    <title>Unordered Lists</title>\n  </head>\n  <body>\n    <!-- Create your unordered list below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create a <ul> element.",
+              "assertion": "return doc.querySelector('ul') !== null;"
+            },
+            {
+              "description": "Your <ul> element should contain exactly three <li> elements.",
+              "assertion": "const lis = doc.querySelectorAll('ul li'); return lis.length === 3;"
+            },
+            {
+              "description": "Your list items should contain the text content 'HTML', 'CSS', and 'JavaScript' in order.",
+              "assertion": "const lis = doc.querySelectorAll('ul li'); return lis[0] && lis[0].textContent.trim() === 'HTML' && lis[1] && lis[1].textContent.trim() === 'CSS' && lis[2] && lis[2].textContent.trim() === 'JavaScript';"
+            }
+          ]
+        },
+        {
+          "id": "html-ordered-lists",
+          "title": "HTML Ordered Lists",
+          "explanation": "An ordered list starts with the `<ol>` tag. Each list item starts with the `<li>` tag. The list items will be marked with numbers (1, 2, 3...) instead of bullet points.",
+          "examples": "```html\n<ol>\n  <li>Wake up</li>\n  <li>Write code</li>\n</ol>\n```",
+          "tips": "Ordered lists are used when the sequence of items is important, like instructions or rankings.",
+          "challenge": "Create an ordered list containing three steps: 'Learn basic syntax', 'Build projects', and 'Apply for jobs'.",
+          "starterCode": "<html>\n  <head>\n    <title>Ordered Lists</title>\n  </head>\n  <body>\n    <!-- Create your ordered list below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create an <ol> element.",
+              "assertion": "return doc.querySelector('ol') !== null;"
+            },
+            {
+              "description": "Your <ol> element should contain three <li> elements.",
+              "assertion": "return doc.querySelectorAll('ol li').length === 3;"
+            },
+            {
+              "description": "Your list items should contain the correct texts in order.",
+              "assertion": "const lis = doc.querySelectorAll('ol li'); return lis[0] && lis[0].textContent.trim() === 'Learn basic syntax' && lis[1] && lis[1].textContent.trim() === 'Build projects' && lis[2] && lis[2].textContent.trim() === 'Apply for jobs';"
+            }
+          ]
+        },
+        {
+          "id": "text-media-workshop",
+          "title": "Build a Recipe Page",
+          "type": "workshop",
+          "explanation": "In this workshop, you will build a dynamic recipe page step-by-step using links, images, ordered and unordered lists.",
+          "steps": [
+            {
+              "step": 1,
+              "title": "Recipe Title & Image",
+              "challenge": "Create an `h1` element containing 'Favorite Pizza Recipe'. Below the heading, create an `img` element with `src` set to 'https://images.unsplash.com/photo-1513104890138-7c749659a591' and `alt` set to 'Delicious pizza'.",
+              "starterCode": "<html>\n  <head>\n    <title>Recipe Page</title>\n  </head>\n  <body>\n    <!-- Write your HTML code below this line -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an <h1> containing the text 'Favorite Pizza Recipe'.",
+                  "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === 'Favorite Pizza Recipe';"
+                },
+                {
+                  "description": "Your code should contain an <img> element with the correct src.",
+                  "assertion": "const img = doc.querySelector('img'); return img && img.getAttribute('src') === 'https://images.unsplash.com/photo-1513104890138-7c749659a591';"
+                },
+                {
+                  "description": "Your <img> element should have the alt description 'Delicious pizza'.",
+                  "assertion": "const img = doc.querySelector('img'); return img && img.getAttribute('alt') === 'Delicious pizza';"
+                }
+              ]
+            },
+            {
+              "step": 2,
+              "title": "Ingredients Unordered List",
+              "challenge": "Below your image, add an `h2` element with the text 'Ingredients'. Under it, create an unordered list (`ul`) containing three `li` items: 'Pizza Dough', 'Tomato Sauce', and 'Mozzarella Cheese'.",
+              "starterCode": "<html>\n  <head>\n    <title>Recipe Page</title>\n  </head>\n  <body>\n    <h1>Favorite Pizza Recipe</h1>\n    <img src=\"https://images.unsplash.com/photo-1513104890138-7c749659a591\" alt=\"Delicious pizza\">\n    <!-- Add Ingredients heading and list below -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an <h2> with the text 'Ingredients'.",
+                  "assertion": "const h2 = doc.querySelector('h2'); return h2 && h2.textContent.trim() === 'Ingredients';"
+                },
+                {
+                  "description": "Your code should contain a <ul> with three <li> elements.",
+                  "assertion": "const lis = doc.querySelectorAll('ul li'); return lis.length === 3;"
+                },
+                {
+                  "description": "Your list items should contain the texts 'Pizza Dough', 'Tomato Sauce', and 'Mozzarella Cheese' in order.",
+                  "assertion": "const lis = doc.querySelectorAll('ul li'); return lis[0] && lis[0].textContent.trim() === 'Pizza Dough' && lis[1] && lis[1].textContent.trim() === 'Tomato Sauce' && lis[2] && lis[2].textContent.trim() === 'Mozzarella Cheese';"
+                }
+              ]
+            },
+            {
+              "step": 3,
+              "title": "Instructions Ordered List",
+              "challenge": "Below the ingredients, add an `h2` element with the text 'Instructions'. Under it, create an ordered list (`ol`) containing three `li` steps: 'Roll the dough', 'Spread the sauce', and 'Bake at 450°F'.",
+              "starterCode": "<html>\n  <head>\n    <title>Recipe Page</title>\n  </head>\n  <body>\n    <h1>Favorite Pizza Recipe</h1>\n    <img src=\"https://images.unsplash.com/photo-1513104890138-7c749659a591\" alt=\"Delicious pizza\">\n    <h2>Ingredients</h2>\n    <ul>\n      <li>Pizza Dough</li>\n      <li>Tomato Sauce</li>\n      <li>Mozzarella Cheese</li>\n    </ul>\n    <!-- Add Instructions heading and list below -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an <h2> with the text 'Instructions'.",
+                  "assertion": "const h2s = doc.querySelectorAll('h2'); return Array.from(h2s).some(h2 => h2.textContent.trim() === 'Instructions');"
+                },
+                {
+                  "description": "Your code should contain an <ol> with three <li> elements.",
+                  "assertion": "const lis = doc.querySelectorAll('ol li'); return lis.length === 3;"
+                },
+                {
+                  "description": "Your ordered list items should contain the correct steps in order.",
+                  "assertion": "const lis = doc.querySelectorAll('ol li'); return lis[0] && lis[0].textContent.trim() === 'Roll the dough' && lis[1] && lis[1].textContent.trim() === 'Spread the sauce' && lis[2] && lis[2].textContent.trim() === 'Bake at 450°F';"
+                }
+              ]
+            },
+            {
+              "step": 4,
+              "title": "Link to More Recipes",
+              "challenge": "At the bottom of your page, add an anchor link (`a`) with the `href` attribute set to 'https://codepath.com' and the anchor text 'Learn more recipes on codePath!'.",
+              "starterCode": "<html>\n  <head>\n    <title>Recipe Page</title>\n  </head>\n  <body>\n    <h1>Favorite Pizza Recipe</h1>\n    <img src=\"https://images.unsplash.com/photo-1513104890138-7c749659a591\" alt=\"Delicious pizza\">\n    <h2>Ingredients</h2>\n    <ul>\n      <li>Pizza Dough</li>\n      <li>Tomato Sauce</li>\n      <li>Mozzarella Cheese</li>\n    </ul>\n    <h2>Instructions</h2>\n    <ol>\n      <li>Roll the dough</li>\n      <li>Spread the sauce</li>\n      <li>Bake at 450°F</li>\n    </ol>\n    <!-- Add your anchor link below -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain an anchor link (<a>) element.",
+                  "assertion": "return doc.querySelector('a') !== null;"
+                },
+                {
+                  "description": "Your anchor link should point to 'https://codepath.com'.",
+                  "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://codepath.com';"
+                },
+                {
+                  "description": "Your anchor link should contain the text 'Learn more recipes on codePath!'.",
+                  "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Learn more recipes on codePath!';"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tables-forms",
+      "title": "Tables & Forms",
+      "lessons": [
+        {
+          "id": "html-tables",
+          "title": "HTML Tables",
+          "explanation": "HTML tables allow web developers to arrange data into rows and columns. A table is defined with the `<table>` tag. Each table row is defined with the `<tr>` tag. A table header is defined with the `<th>` tag. A table cell/data is defined with the `<td>` tag.",
+          "examples": "```html\n<table>\n  <tr>\n    <th>Language</th>\n    <th>Difficulty</th>\n  </tr>\n  <tr>\n    <td>HTML</td>\n    <td>Easy</td>\n  </tr>\n</table>\n```",
+          "tips": "Use headers (`th`) at the top of your columns to make tables readable and accessible.",
+          "challenge": "Create a table with a header row containing two headers: 'Feature' and 'Benefit'. Add one data row containing two table cells: 'Interactive Editor' and 'Hands-on practice'.",
+          "starterCode": "<html>\n  <head>\n    <title>Tables</title>\n  </head>\n  <body>\n    <!-- Create your table below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create a <table> element.",
+              "assertion": "return doc.querySelector('table') !== null;"
+            },
+            {
+              "description": "Your table should contain exactly two rows (<tr>).",
+              "assertion": "return doc.querySelectorAll('table tr').length === 2;"
+            },
+            {
+              "description": "The first row should contain two table header cells (<th>) with text 'Feature' and 'Benefit'.",
+              "assertion": "const ths = doc.querySelectorAll('table tr:first-child th'); return ths.length === 2 && ths[0].textContent.trim() === 'Feature' && ths[1].textContent.trim() === 'Benefit';"
+            },
+            {
+              "description": "The second row should contain two table data cells (<td>) with text 'Interactive Editor' and 'Hands-on practice'.",
+              "assertion": "const tds = doc.querySelectorAll('table tr:nth-child(2) td'); return tds.length === 2 && tds[0].textContent.trim() === 'Interactive Editor' && tds[1].textContent.trim() === 'Hands-on practice';"
+            }
+          ]
+        },
+        {
+          "id": "html-inputs",
+          "title": "HTML Inputs & Labels",
+          "explanation": "The HTML `<input>` element is the most used form element. An input element can be displayed in many ways, depending on the `type` attribute (like `text`, `checkbox`, `radio`, `submit`, etc.). The `<label>` element defines a label for a form element. It provides usability improvement for mouse users: if the user clicks on the text within the label element, it toggles the control.",
+          "examples": "```html\n<label for=\"username\">Username:</label>\n<input type=\"text\" id=\"username\">\n```",
+          "tips": "Always match the label's `for` attribute with the input's `id` attribute to link them.",
+          "challenge": "Create a label element containing 'Email:' and an input element of type 'text' with the `id` set to 'email-field'. Make sure to set the `for` attribute of the label to link to the input.",
+          "starterCode": "<html>\n  <head>\n    <title>Inputs and Labels</title>\n  </head>\n  <body>\n    <!-- Create your label and input below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create a <label> element.",
+              "assertion": "return doc.querySelector('label') !== null;"
+            },
+            {
+              "description": "You should create an <input> element.",
+              "assertion": "return doc.querySelector('input') !== null;"
+            },
+            {
+              "description": "Your input element should be of type 'text' and have the id 'email-field'.",
+              "assertion": "const input = doc.querySelector('input'); return input && input.getAttribute('type') === 'text' && input.getAttribute('id') === 'email-field';"
+            },
+            {
+              "description": "Your label element should have a 'for' attribute matching the input's id and contain the text 'Email:'.",
+              "assertion": "const label = doc.querySelector('label'); return label && label.getAttribute('for') === 'email-field' && label.textContent.trim() === 'Email:';"
+            }
+          ]
+        },
+        {
+          "id": "html-forms",
+          "title": "HTML Forms & Submit Buttons",
+          "explanation": "An HTML form is used to collect user input and submit it to a server. The form container is defined by the `<form>` tag, which wraps all input elements and the submit button. The `<form>` tag uses the `action` attribute to specify the destination URL where the form data should be sent upon submission. To trigger this, we use a submit button configured as `<button type=\"submit\">`.",
+          "examples": "```html\n<form action=\"/submit\">\n  <button type=\"submit\">Submit</button>\n</form>\n```",
+          "tips": "Always specify `type=\"submit\"` for the submit button in a form, otherwise it defaults to submit but being explicit is good practice.",
+          "challenge": "Create a form element with an `action` attribute of '/register'. Inside the form, add a button with `type=\"submit\"` containing the text 'Join codePath'.",
+          "starterCode": "<html>\n  <head>\n    <title>Forms</title>\n  </head>\n  <body>\n    <!-- Create your form and submit button below -->\n\n  </body>\n</html>",
+          "language": "html",
+          "tests": [
+            {
+              "description": "You should create a <form> element.",
+              "assertion": "return doc.querySelector('form') !== null;"
+            },
+            {
+              "description": "Your form element should have an action attribute set to '/register'.",
+              "assertion": "const form = doc.querySelector('form'); return form && form.getAttribute('action') === '/register';"
+            },
+            {
+              "description": "Your form should contain a <button> element.",
+              "assertion": "const btn = doc.querySelector('form button'); return !!btn;"
+            },
+            {
+              "description": "Your button should have the attribute type='submit' and contain the text 'Join codePath'.",
+              "assertion": "const btn = doc.querySelector('form button'); return btn && btn.getAttribute('type') === 'submit' && btn.textContent.trim() === 'Join codePath';"
+            }
+          ]
+        },
+        {
+          "id": "tables-forms-workshop",
+          "title": "Build a Survey Form",
+          "type": "workshop",
+          "explanation": "In this workshop, you will build a survey submission form complete with label linkages, a text input, a submit button, and a table showing past entries.",
+          "steps": [
+            {
+              "step": 1,
+              "title": "Form Container & Text Input",
+              "challenge": "Create a `form` element with an `action` attribute set to '/submit-feedback'. Inside the form, create a `label` element containing 'Your Feedback:' and an `input` element of type 'text' with an `id` of 'feedback-input'. Link the label to the input using the `for` attribute.",
+              "starterCode": "<html>\n  <head>\n    <title>Feedback Survey</title>\n  </head>\n  <body>\n    <!-- Write your HTML code below this line -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain a <form> element with action set to '/submit-feedback'.",
+                  "assertion": "const form = doc.querySelector('form'); return form && form.getAttribute('action') === '/submit-feedback';"
+                },
+                {
+                  "description": "Your form should contain a <label> linked to an <input> with id 'feedback-input'.",
+                  "assertion": "const label = doc.querySelector('form label'); const input = doc.querySelector('form input'); return label && input && label.getAttribute('for') === 'feedback-input' && input.getAttribute('id') === 'feedback-input' && input.getAttribute('type') === 'text';"
+                },
+                {
+                  "description": "Your label should contain the text 'Your Feedback:'.",
+                  "assertion": "const label = doc.querySelector('form label'); return label && label.textContent.trim() === 'Your Feedback:';"
+                }
+              ]
+            },
+            {
+              "step": 2,
+              "title": "Form Submit Button",
+              "challenge": "Inside the form (below the label and input), add a button with `type=\"submit\"` containing the text 'Send Feedback'.",
+              "starterCode": "<html>\n  <head>\n    <title>Feedback Survey</title>\n  </head>\n  <body>\n    <form action=\"/submit-feedback\">\n      <label for=\"feedback-input\">Your Feedback:</label>\n      <input type=\"text\" id=\"feedback-input\">\n      <!-- Add submit button below -->\n    </form>\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your form should contain a button element.",
+                  "assertion": "const btn = doc.querySelector('form button'); return !!btn;"
+                },
+                {
+                  "description": "Your button should be of type 'submit'.",
+                  "assertion": "const btn = doc.querySelector('form button'); return btn && btn.getAttribute('type') === 'submit';"
+                },
+                {
+                  "description": "Your button should contain the text 'Send Feedback'.",
+                  "assertion": "const btn = doc.querySelector('form button'); return btn && btn.textContent.trim() === 'Send Feedback';"
+                }
+              ]
+            },
+            {
+              "step": 3,
+              "title": "Submissions Table",
+              "challenge": "Below the form, add a `table` displaying previous submissions. The table should have one header row (`tr`) containing two header cells (`th`): 'User' and 'Comment'. Add one data row (`tr`) below it containing two data cells (`td`): 'Alice' and 'Great platform!'.",
+              "starterCode": "<html>\n  <head>\n    <title>Feedback Survey</title>\n  </head>\n  <body>\n    <form action=\"/submit-feedback\">\n      <label for=\"feedback-input\">Your Feedback:</label>\n      <input type=\"text\" id=\"feedback-input\">\n      <button type=\"submit\">Send Feedback</button>\n    </form>\n    <!-- Add table below the form -->\n\n  </body>\n</html>",
+              "tests": [
+                {
+                  "description": "Your code should contain a <table> element.",
+                  "assertion": "return doc.querySelector('table') !== null;"
+                },
+                {
+                  "description": "Your table should contain exactly two rows (<tr>).",
+                  "assertion": "return doc.querySelectorAll('table tr').length === 2;"
+                },
+                {
+                  "description": "The first row should contain header cells with 'User' and 'Comment'.",
+                  "assertion": "const ths = doc.querySelectorAll('table tr:first-child th'); return ths.length === 2 && ths[0].textContent.trim() === 'User' && ths[1].textContent.trim() === 'Comment';"
+                },
+                {
+                  "description": "The second row should contain data cells with 'Alice' and 'Great platform!'.",
+                  "assertion": "const tds = doc.querySelectorAll('table tr:nth-child(2) td'); return tds.length === 2 && tds[0].textContent.trim() === 'Alice' && tds[1].textContent.trim() === 'Great platform!';"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
