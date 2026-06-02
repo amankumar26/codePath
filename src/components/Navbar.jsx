@@ -23,7 +23,7 @@ export const Navbar = () => {
             <Code2 className="h-6 w-6 stroke-[3]" />
           </div>
           <span className="text-sm font-retro uppercase tracking-tight text-white">
-            code<span className="text-brand-500">Path</span>
+            devloper<span className="text-brand-500">Path</span>
           </span>
         </Link>
 
