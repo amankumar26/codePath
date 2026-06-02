@@ -436,13 +436,11 @@ export default function LessonPage() {
         </div>
 
         {/* 2. Workspace Viewports */}
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           
           {/* Instructions Column (40% width) */}
           <section
-            className={`flex flex-col h-full bg-dark-900 overflow-y-auto ${
-              activeTab === 'instructions' ? 'flex' : 'hidden lg:flex'
-            }`}
+            className="flex flex-col h-auto lg:h-full lg:overflow-y-auto bg-dark-900"
             style={{ flexBasis: '40%' }}
           >
             <div className="sticky top-0 z-10 bg-dark-900 border-b-2 border-dark-800 p-4 flex items-center justify-between">
@@ -488,42 +486,12 @@ export default function LessonPage() {
 
           {/* Monaco IDE Workspace (60% width) */}
           <section
-            className={`flex-1 flex flex-col h-full border-l-2 border-dark-800 bg-dark-950 ${
-              activeTab !== 'instructions' ? 'flex' : 'hidden lg:flex'
-            }`}
+            className="flex-1 flex flex-col h-auto lg:h-full border-t-2 lg:border-t-0 lg:border-l-2 border-dark-800 bg-dark-950"
             style={{ flexBasis: '60%' }}
           >
             {/* Header bar controls */}
             <div className="p-3 border-b-2 border-dark-800 flex items-center justify-between bg-dark-900">
-              {/* Mobile tabs */}
-              <div className="flex items-center gap-1.5 lg:hidden">
-                <button
-                  onClick={() => setActiveTab('instructions')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'instructions' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Objective
-                </button>
-                <button
-                  onClick={() => setActiveTab('editor')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'editor' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Code
-                </button>
-                <button
-                  onClick={() => setActiveTab('preview')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'preview' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Output
-                </button>
-              </div>
-
-              <span className="hidden lg:inline-flex items-center gap-2 text-xs font-semibold text-slate-400">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400">
                 <Terminal className="h-4 w-4 text-brand-500" />
                 <span>INTERACTIVE WORKSHOP EDITOR</span>
               </span>
@@ -549,10 +517,10 @@ export default function LessonPage() {
             </div>
 
             {/* Split panels */}
-            <div className={`flex-1 relative ${activeTab === 'editor' || activeTab === 'preview' ? 'block' : 'hidden lg:block'}`}>
-              <div className="absolute inset-0 flex flex-col h-full">
+            <div className="flex-1 flex flex-col lg:relative lg:min-h-0">
+              <div className="flex flex-col lg:absolute lg:inset-0 h-full">
                 {/* Monaco editor */}
-                <div className={`flex-1 min-h-0 ${activeTab === 'editor' ? 'block' : 'hidden lg:block'}`}>
+                <div className="min-h-[350px] lg:flex-1 lg:min-h-0">
                   <Editor
                     height="100%"
                     language={lesson.language}
@@ -576,12 +544,10 @@ export default function LessonPage() {
                 </div>
 
                 {/* Live Preview + Tests pane */}
-                <div className={`flex-1 border-t-2 border-dark-800 flex flex-col lg:flex-row min-h-0 bg-dark-950 ${
-                  activeTab === 'preview' ? 'block' : 'hidden lg:flex'
-                }`}>
+                <div className="flex flex-col lg:flex-row lg:flex-1 border-t-2 border-dark-800 min-h-0 bg-dark-950">
                   
                   {/* Preview container */}
-                  <div className="flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-dark-800 flex flex-col min-h-[160px] lg:min-h-0">
+                  <div className="flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-dark-800 flex flex-col min-h-[300px] lg:min-h-0">
                     <div className="px-4 py-2 border-b-2 border-dark-800 flex items-center justify-between bg-dark-900 text-xs font-bold uppercase text-slate-400">
                       <span className="flex items-center gap-1.5">
                         <MonitorPlay className="h-3.5 w-3.5 text-brand-500" />
@@ -599,7 +565,7 @@ export default function LessonPage() {
                   </div>
 
                   {/* Tests container */}
-                  <div className="flex-1 flex flex-col min-h-[160px] lg:min-h-0 bg-dark-950">
+                  <div className="flex-1 flex flex-col min-h-[300px] lg:min-h-0 bg-dark-950">
                     <div className="px-4 py-2 border-b-2 border-dark-800 flex items-center justify-between bg-dark-900 text-xs font-bold uppercase text-slate-400">
                       <span>Tests Results</span>
                       {runClicked && (
@@ -931,13 +897,11 @@ export default function LessonPage() {
 
       {/* ================= STAGE 3: INTERACTIVE CODING VIEW ================= */}
       {stage === 'code' && (
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           
           {/* Instructions Column (40% width) */}
           <section
-            className={`flex flex-col h-full bg-dark-900 overflow-y-auto ${
-              activeTab === 'instructions' ? 'flex' : 'hidden lg:flex'
-            }`}
+            className="flex flex-col h-auto lg:h-full lg:overflow-y-auto bg-dark-900"
             style={{ flexBasis: '40%' }}
           >
             {/* Inner Header controls */}
@@ -990,42 +954,12 @@ export default function LessonPage() {
 
           {/* Monaco IDE Workspace (60% width) */}
           <section
-            className={`flex-1 flex flex-col h-full border-l-2 border-dark-800 bg-dark-950 ${
-              activeTab !== 'instructions' ? 'flex' : 'hidden lg:flex'
-            }`}
+            className="flex-1 flex flex-col h-auto lg:h-full border-t-2 lg:border-t-0 lg:border-l-2 border-dark-800 bg-dark-950"
             style={{ flexBasis: '60%' }}
           >
             {/* Header bar controls */}
             <div className="p-3 border-b-2 border-dark-800 flex items-center justify-between bg-dark-900">
-              {/* Mobile tabs */}
-              <div className="flex items-center gap-1.5 lg:hidden">
-                <button
-                  onClick={() => setActiveTab('instructions')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'instructions' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Objective
-                </button>
-                <button
-                  onClick={() => setActiveTab('editor')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'editor' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Code
-                </button>
-                <button
-                  onClick={() => setActiveTab('preview')}
-                  className={`px-3 py-1.5 text-xs font-bold uppercase ${
-                    activeTab === 'preview' ? 'bg-brand-500 text-black' : 'text-slate-400'
-                  }`}
-                >
-                  Output
-                </button>
-              </div>
-
-              <span className="hidden lg:inline-flex items-center gap-2 text-xs font-semibold text-slate-400">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400">
                 <Terminal className="h-4 w-4 text-brand-500" />
                 <span>INTERACTIVE EDITOR</span>
               </span>
@@ -1051,10 +985,10 @@ export default function LessonPage() {
             </div>
 
             {/* Split panels */}
-            <div className={`flex-1 relative ${activeTab === 'editor' || activeTab === 'preview' ? 'block' : 'hidden lg:block'}`}>
-              <div className="absolute inset-0 flex flex-col h-full">
+            <div className="flex-1 flex flex-col lg:relative lg:min-h-0">
+              <div className="flex flex-col lg:absolute lg:inset-0 h-full">
                 {/* Monaco editor */}
-                <div className={`flex-1 min-h-0 ${activeTab === 'editor' ? 'block' : 'hidden lg:block'}`}>
+                <div className="min-h-[350px] lg:flex-1 lg:min-h-0">
                   <Editor
                     height="100%"
                     language={lesson.language}
@@ -1078,12 +1012,10 @@ export default function LessonPage() {
                 </div>
 
                 {/* Live Preview + Tests pane */}
-                <div className={`flex-1 border-t-2 border-dark-800 flex flex-col lg:flex-row min-h-0 bg-dark-950 ${
-                  activeTab === 'preview' ? 'block' : 'hidden lg:flex'
-                }`}>
+                <div className="flex flex-col lg:flex-row lg:flex-1 border-t-2 border-dark-800 min-h-0 bg-dark-950">
                   
                   {/* Preview container */}
-                  <div className="flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-dark-800 flex flex-col min-h-[160px] lg:min-h-0">
+                  <div className="flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-dark-800 flex flex-col min-h-[300px] lg:min-h-0">
                     <div className="px-4 py-2 border-b-2 border-dark-800 flex items-center justify-between bg-dark-900 text-xs font-bold uppercase text-slate-400">
                       <span className="flex items-center gap-1.5">
                         <MonitorPlay className="h-3.5 w-3.5 text-brand-500" />
