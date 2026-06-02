@@ -28,14 +28,14 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Nav Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link
             to="/course/html-cert"
             className="mine-btn text-[10px] h-10"
           >
             <div className="flex items-center gap-1.5">
               <LayoutDashboard className="h-4 w-4" />
-              <span>Dashboard</span>
+              <span className="hidden sm:inline">Dashboard</span>
             </div>
           </Link>
 

@@ -388,8 +388,8 @@ export default function LessonPage() {
       <div className="flex flex-col h-[calc(100vh-4rem)] bg-dark-950 text-slate-200">
         
         {/* 1. Global Workshop HUD Header */}
-        <div className="bg-[#1b1b32] border-b-2 border-dark-800 px-6 py-3 flex items-center justify-between z-10">
-          <div className="flex items-center gap-3">
+        <div className="bg-[#1b1b32] border-b-2 border-dark-800 px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-3 z-10">
+          <div className="flex items-center justify-between md:justify-start gap-3 w-full md:w-auto">
             <Link
               to={`/course/${courseId}`}
               className="mine-btn h-9 px-3 flex items-center justify-center gap-1 text-xs uppercase"
@@ -397,13 +397,13 @@ export default function LessonPage() {
               <ChevronLeft className="h-4 w-4" />
               <span>Syllabus</span>
             </Link>
-            <span className="text-xs text-slate-300 font-bold bg-[#0a0a23] border border-[#2a2a40] px-3 py-1.5 rounded-none uppercase">
+            <span className="text-xs text-slate-300 font-bold bg-[#0a0a23] border border-[#2a2a40] px-3 py-1.5 rounded-none uppercase truncate max-w-[180px] sm:max-w-none">
               Workshop: {lesson.title}
             </span>
           </div>
 
           {/* Numbered Steps Navigator (FCC style) */}
-          <div className="flex items-center gap-1 bg-[#0a0a23] border border-[#2a2a40] p-1 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-1 bg-[#0a0a23] border border-[#2a2a40] p-1 text-xs w-full md:w-auto">
             <span className="text-slate-400 font-bold uppercase px-2 text-[10px]">Steps:</span>
             {lesson.steps.map((step) => {
               const stepNum = step.step;
@@ -709,8 +709,8 @@ export default function LessonPage() {
     <div className="flex flex-col h-[calc(100vh-4rem)] bg-dark-950 text-slate-200">
       
       {/* 1. Global Stage Progress HUD Header */}
-      <div className="bg-[#1b1b32] border-b-2 border-dark-800 px-6 py-3 flex items-center justify-between z-10">
-        <div className="flex items-center gap-3">
+      <div className="bg-[#1b1b32] border-b-2 border-dark-800 px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-3 z-10">
+        <div className="flex items-center justify-between md:justify-start gap-3 w-full md:w-auto">
           <Link
             to={`/course/${courseId}`}
             className="mine-btn h-9 px-3 flex items-center justify-center gap-1 text-xs uppercase"
@@ -718,13 +718,13 @@ export default function LessonPage() {
             <ChevronLeft className="h-4 w-4" />
             <span>Syllabus</span>
           </Link>
-          <span className="text-xs text-slate-300 font-bold bg-[#0a0a23] border border-[#2a2a40] px-3 py-1.5 rounded-none uppercase">
+          <span className="text-xs text-slate-300 font-bold bg-[#0a0a23] border border-[#2a2a40] px-3 py-1.5 rounded-none uppercase truncate max-w-[180px] sm:max-w-none">
             Lesson {currentLessonIndex + 1}: {lesson.title}
           </span>
         </div>
 
         {/* Horizontal Step Progression Tabs */}
-        <div className="flex items-center gap-1.5 bg-[#0a0a23] border border-[#2a2a40] p-1 text-xs">
+        <div className="flex items-center justify-center gap-1 bg-[#0a0a23] border border-[#2a2a40] p-1 text-xs w-full md:w-auto">
           <button
             onClick={() => updateStage('theory')}
             className={`px-3 py-1.5 font-bold uppercase transition-colors rounded-none ${
@@ -757,7 +757,7 @@ export default function LessonPage() {
             }`}
           >
             {!quizPassed && <Lock className="h-3 w-3 shrink-0" />}
-            <span>3. Code Practice</span>
+            <span>3. Code<span className="hidden sm:inline"> Practice</span></span>
           </button>
         </div>
       </div>
