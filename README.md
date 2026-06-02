@@ -1,6 +1,6 @@
-# 🚀 codePath - Interactive Web Development Learning Platform
+# 🚀 DevloperPath - Interactive Web Development Learning Platform
 
-**codePath** is an interactive, completely client-side learning platform built for complete beginners to master HTML, CSS, and JavaScript. Drawing inspiration from platforms like *freeCodeCamp*, codePath offers structured paths, conceptual trivia, step-by-step instructions, automated tests, and live visual output rendering directly inside the browser.
+**DevloperPath** is an interactive, completely client-side learning platform built for complete beginners to master HTML, CSS, and JavaScript. Drawing inspiration from platforms like *freeCodeCamp*, DevloperPath offers structured paths, conceptual trivia, step-by-step instructions, automated tests, and live visual output rendering directly inside the browser.
 
 ---
 
@@ -19,7 +19,7 @@ At the end of modules, students apply their knowledge to build cumulative step-b
 Leverages custom DOMParser assertions executing dynamically inside the browser. It parses user-written code into a virtual document, runs programmatic assertions, and prints descriptive pass/fail feedback and runtime errors in real time.
 
 ### 4. Zero-Loss State Persistence
-All states are synchronized with the browser's `localStorage` immediately upon user action under the unified `codepath_` key namespace:
+All states are synchronized with the browser's `localStorage` immediately upon user action under the unified `devloperpath_` key namespace:
 * **Draft Codes**: Keystrokes in Monaco Editor are saved dynamically on every keypress per lesson and per workshop step.
 * **Quiz History**: Remembers selected answers, submit states, and passed status to prevent re-entering answers.
 * **UI Preferences**: syllabus collapsed/expanded accordion selections persist between sessions.
@@ -30,7 +30,7 @@ All states are synchronized with the browser's `localStorage` immediately upon u
 ## 📂 Project Architecture
 
 ```
-codePath/
+DevloperPath/
 ├── public/                 # Static public assets
 ├── src/
 │   ├── assets/            # SVG icons, styling graphics, and assets
@@ -86,7 +86,7 @@ The output files will be built into the `/dist` directory.
 ---
 
 ## 🛡️ Theme Design System
-codePath utilizes a custom retro-modern HUD theme:
+DevloperPath utilizes a custom retro-modern HUD theme:
 * **Backgrounds**: Signature deep navy `#0a0a23` and dark steel slate `#1b1b32`.
 * **Borders**: Sharp solid `#2a2a40` borders with box-shadow offsets.
 * **Typography**: Modern headings with *Plus Jakarta Sans* and code segments with *JetBrains Mono*.

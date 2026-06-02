@@ -10,7 +10,7 @@ export default function Home() {
   const [resumeUrl, setResumeUrl] = useState('/course/html-cert');
 
   useEffect(() => {
-    const saved = localStorage.getItem('codepath_last_visited_url');
+    const saved = localStorage.getItem('devloperpath_last_visited_url');
     if (saved) {
       setResumeUrl(saved);
     }
@@ -77,7 +77,7 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 mt-28 lg:px-8 relative z-10">
         <div className="text-center border-b-4 border-dark-800 pb-8">
           <h2 className="text-xl font-extrabold tracking-tight text-white uppercase text-shadow-retro">
-            Why learn on codePath?
+            Why learn on DevloperPath?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-slate-400">
             Our platform provides hands-on learning that feels less like reading documentation and more like building actual code.

@@ -13,7 +13,7 @@ export const useCourseProgress = () => {
 export const CourseProgressProvider = ({ children }) => {
   const [completedLessons, setCompletedLessons] = useState(() => {
     try {
-      const stored = localStorage.getItem('codepath_completed_lessons');
+      const stored = localStorage.getItem('devloperpath_completed_lessons');
       return stored ? JSON.parse(stored) : [];
     } catch (e) {
       console.error('Failed to parse progress from localStorage', e);
@@ -23,7 +23,7 @@ export const CourseProgressProvider = ({ children }) => {
 
   const [completedWorkshopSteps, setCompletedWorkshopSteps] = useState(() => {
     try {
-      const stored = localStorage.getItem('codepath_completed_workshop_steps');
+      const stored = localStorage.getItem('devloperpath_completed_workshop_steps');
       return stored ? JSON.parse(stored) : {};
     } catch (e) {
       console.error('Failed to parse workshop steps from localStorage', e);
@@ -32,11 +32,11 @@ export const CourseProgressProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem('codepath_completed_lessons', JSON.stringify(completedLessons));
+    localStorage.setItem('devloperpath_completed_lessons', JSON.stringify(completedLessons));
   }, [completedLessons]);
 
   useEffect(() => {
-    localStorage.setItem('codepath_completed_workshop_steps', JSON.stringify(completedWorkshopSteps));
+    localStorage.setItem('devloperpath_completed_workshop_steps', JSON.stringify(completedWorkshopSteps));
   }, [completedWorkshopSteps]);
 
   const completeLesson = (lessonId) => {
@@ -100,7 +100,7 @@ export const CourseProgressProvider = ({ children }) => {
       
       // Clear all codePath specific keys from localStorage
       Object.keys(localStorage).forEach((key) => {
-        if (key.startsWith('codepath_')) {
+        if (key.startsWith('devloperpath_')) {
           localStorage.removeItem(key);
         }
       });

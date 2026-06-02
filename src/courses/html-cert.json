@@ -13,7 +13,7 @@
           "explanation": "Welcome to web development! HTML stands for **HyperText Markup Language**. It is a markup language used to structure and lay out content on a webpage, rather than a programming language (which executes program logic). Every standard webpage uses the `<html>` tag as the root element to wrap all other elements on the page.",
           "examples": "A basic HTML element has an opening tag, content, and a closing tag. The `<html>` tag acts as the root container:\n\n```html\n<html>\n  <p>This is a paragraph inside the root HTML element.</p>\n</html>\n```",
           "tips": "Every HTML tag starts with a `<` and ends with `>`. Closing tags also include a forward slash `/` before the tag name.",
-          "challenge": "Create a paragraph (`p`) element containing the text 'Welcome to codePath'.",
+          "challenge": "Create a paragraph (`p`) element containing the text 'Welcome to DevloperPath'.",
           "starterCode": "<html>\n  <head>\n    <title>Introduction</title>\n  </head>\n  <body>\n    <!-- Write your HTML code below this line -->\n\n  </body>\n</html>",
           "language": "html",
           "tests": [
@@ -22,8 +22,8 @@
               "assertion": "const p = doc.querySelector('p'); return !!p;"
             },
             {
-              "description": "Your paragraph element should contain the text 'Welcome to codePath'.",
-              "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim().replace(/\\s+/g, ' ') === 'Welcome to codePath';"
+              "description": "Your paragraph element should contain the text 'Welcome to DevloperPath'.",
+              "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim().replace(/\\s+/g, ' ') === 'Welcome to DevloperPath';"
             }
           ]
         },
@@ -61,7 +61,7 @@
           "explanation": "HTML headings are defined with the `<h1>` to `<h6>` tags. `<h1>` defines the most important heading (usually the largest), while `<h6>` defines the least important heading (usually the smallest). Headings help search engines understand the structure of your content.",
           "examples": "```html\n<h1>Main Heading</h1>\n<h2>Sub Heading</h2>\n```",
           "tips": "Only use one `<h1>` per page for search engine optimization (SEO) best practices.",
-          "challenge": "Create an `h1` heading element containing the text 'codePath' and an `h2` heading element containing the text 'Interactive Editor'.",
+          "challenge": "Create an `h1` heading element containing the text 'DevloperPath' and an `h2` heading element containing the text 'Interactive Editor'.",
           "starterCode": "<html>\n  <head>\n    <title>My Headings</title>\n  </head>\n  <body>\n    <!-- Write your HTML headings below this line -->\n\n  </body>\n</html>",
           "language": "html",
           "tests": [
@@ -70,8 +70,8 @@
               "assertion": "const h1 = doc.querySelector('h1'); return !!h1;"
             },
             {
-              "description": "Your <h1> element should contain the text 'codePath'.",
-              "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === 'codePath';"
+              "description": "Your <h1> element should contain the text 'DevloperPath'.",
+              "assertion": "const h1 = doc.querySelector('h1'); return h1 && h1.textContent.trim() === 'DevloperPath';"
             },
             {
               "description": "You should create an <h2> element.",
@@ -152,7 +152,7 @@
             {
               "step": 3,
               "title": "Introductory Paragraph",
-              "challenge": "Below your `h2` element, add a paragraph (`p`) element containing the text 'I am a web developer learning HTML on codePath!'.",
+              "challenge": "Below your `h2` element, add a paragraph (`p`) element containing the text 'I am a web developer learning HTML on DevloperPath!'.",
               "starterCode": "<html>\n  <head>\n    <title>Portfolio</title>\n  </head>\n  <body>\n    <h1>John Doe's Portfolio</h1>\n    <h2>About Me</h2>\n    <!-- Write your p element below -->\n\n  </body>\n</html>",
               "tests": [
                 {
@@ -164,8 +164,8 @@
                   "assertion": "const p = doc.querySelector('p'); return !!p;"
                 },
                 {
-                  "description": "Your <p> element should contain the text 'I am a web developer learning HTML on codePath!'.",
-                  "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim() === 'I am a web developer learning HTML on codePath!';"
+                  "description": "Your <p> element should contain the text 'I am a web developer learning HTML on DevloperPath!'.",
+                  "assertion": "const p = doc.querySelector('p'); return p && p.textContent.trim() === 'I am a web developer learning HTML on DevloperPath!';"
                 }
               ]
             }
@@ -183,7 +183,7 @@
           "explanation": "HTML links are hyperlinks. You can click on a link to jump to another document or section. Links are defined with the `<a>` (anchor) tag. The key attribute is `href`, which specifies the destination URL. The text between the opening `<a>` and closing `</a>` tags is called the **anchor text** or **link text**, which is what the user clicks on.",
           "examples": "```html\n<a href=\"https://www.google.com\">Visit Google</a>\n```",
           "tips": "Add the attribute `target=\"_blank\"` to open the link in a new tab.",
-          "challenge": "Create a link (`a`) that points to 'https://codepath.com' and has the anchor text 'Explore codePath'.",
+          "challenge": "Create a link (`a`) that points to 'https://devloperpath.com' and has the anchor text 'Explore DevloperPath'.",
           "starterCode": "<html>\n  <head>\n    <title>Hyperlinks</title>\n  </head>\n  <body>\n    <!-- Create your link element below -->\n\n  </body>\n</html>",
           "language": "html",
           "tests": [
@@ -192,12 +192,12 @@
               "assertion": "return doc.querySelector('a') !== null;"
             },
             {
-              "description": "Your anchor element should have an href attribute set to 'https://codepath.com'.",
-              "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://codepath.com';"
+              "description": "Your anchor element should have an href attribute set to 'https://devloperpath.com'.",
+              "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://devloperpath.com';"
             },
             {
-              "description": "Your anchor element should have text content 'Explore codePath'.",
-              "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Explore codePath';"
+              "description": "Your anchor element should have text content 'Explore DevloperPath'.",
+              "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Explore DevloperPath';"
             }
           ]
         },
@@ -342,7 +342,7 @@
             {
               "step": 4,
               "title": "Link to More Recipes",
-              "challenge": "At the bottom of your page, add an anchor link (`a`) with the `href` attribute set to 'https://codepath.com' and the anchor text 'Learn more recipes on codePath!'.",
+              "challenge": "At the bottom of your page, add an anchor link (`a`) with the `href` attribute set to 'https://devloperpath.com' and the anchor text 'Learn more recipes on DevloperPath!'.",
               "starterCode": "<html>\n  <head>\n    <title>Recipe Page</title>\n  </head>\n  <body>\n    <h1>Favorite Pizza Recipe</h1>\n    <img src=\"https://images.unsplash.com/photo-1513104890138-7c749659a591\" alt=\"Delicious pizza\">\n    <h2>Ingredients</h2>\n    <ul>\n      <li>Pizza Dough</li>\n      <li>Tomato Sauce</li>\n      <li>Mozzarella Cheese</li>\n    </ul>\n    <h2>Instructions</h2>\n    <ol>\n      <li>Roll the dough</li>\n      <li>Spread the sauce</li>\n      <li>Bake at 450°F</li>\n    </ol>\n    <!-- Add your anchor link below -->\n\n  </body>\n</html>",
               "tests": [
                 {
@@ -350,12 +350,12 @@
                   "assertion": "return doc.querySelector('a') !== null;"
                 },
                 {
-                  "description": "Your anchor link should point to 'https://codepath.com'.",
-                  "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://codepath.com';"
+                  "description": "Your anchor link should point to 'https://devloperpath.com'.",
+                  "assertion": "const a = doc.querySelector('a'); return a && a.getAttribute('href') === 'https://devloperpath.com';"
                 },
                 {
-                  "description": "Your anchor link should contain the text 'Learn more recipes on codePath!'.",
-                  "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Learn more recipes on codePath!';"
+                  "description": "Your anchor link should contain the text 'Learn more recipes on DevloperPath!'.",
+                  "assertion": "const a = doc.querySelector('a'); return a && a.textContent.trim() === 'Learn more recipes on DevloperPath!';"
                 }
               ]
             }
@@ -429,7 +429,7 @@
           "explanation": "An HTML form is used to collect user input and submit it to a server. The form container is defined by the `<form>` tag, which wraps all input elements and the submit button. The `<form>` tag uses the `action` attribute to specify the destination URL where the form data should be sent upon submission. To trigger this, we use a submit button configured as `<button type=\"submit\">`.",
           "examples": "```html\n<form action=\"/submit\">\n  <button type=\"submit\">Submit</button>\n</form>\n```",
           "tips": "Always specify `type=\"submit\"` for the submit button in a form, otherwise it defaults to submit but being explicit is good practice.",
-          "challenge": "Create a form element with an `action` attribute of '/register'. Inside the form, add a button with `type=\"submit\"` containing the text 'Join codePath'.",
+          "challenge": "Create a form element with an `action` attribute of '/register'. Inside the form, add a button with `type=\"submit\"` containing the text 'Join DevloperPath'.",
           "starterCode": "<html>\n  <head>\n    <title>Forms</title>\n  </head>\n  <body>\n    <!-- Create your form and submit button below -->\n\n  </body>\n</html>",
           "language": "html",
           "tests": [
@@ -446,8 +446,8 @@
               "assertion": "const btn = doc.querySelector('form button'); return !!btn;"
             },
             {
-              "description": "Your button should have the attribute type='submit' and contain the text 'Join codePath'.",
-              "assertion": "const btn = doc.querySelector('form button'); return btn && btn.getAttribute('type') === 'submit' && btn.textContent.trim() === 'Join codePath';"
+              "description": "Your button should have the attribute type='submit' and contain the text 'Join DevloperPath'.",
+              "assertion": "const btn = doc.querySelector('form button'); return btn && btn.getAttribute('type') === 'submit' && btn.textContent.trim() === 'Join DevloperPath';"
             }
           ]
         },

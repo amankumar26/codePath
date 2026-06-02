@@ -35,7 +35,7 @@ export default function CoursePage() {
   const [resumeUrl, setResumeUrl] = useState(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem('codepath_last_visited_url');
+    const saved = localStorage.getItem('devloperpath_last_visited_url');
     if (saved) {
       setResumeUrl(saved);
     }
@@ -44,7 +44,7 @@ export default function CoursePage() {
   // Keep track of which modules are collapsed (default is expanded, so empty object means all expanded)
   const [collapsedModules, setCollapsedModules] = useState(() => {
     try {
-      const saved = localStorage.getItem('codepath_collapsed_modules');
+      const saved = localStorage.getItem('devloperpath_collapsed_modules');
       return saved ? JSON.parse(saved) : {};
     } catch (e) {
       console.error('Failed to parse collapsed modules from localStorage', e);
@@ -58,7 +58,7 @@ export default function CoursePage() {
         ...prev,
         [moduleId]: !prev[moduleId]
       };
-      localStorage.setItem('codepath_collapsed_modules', JSON.stringify(updated));
+      localStorage.setItem('devloperpath_collapsed_modules', JSON.stringify(updated));
       return updated;
     });
   };

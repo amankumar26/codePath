@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://codepath.onrender.com/sitemap.xml
+Sitemap: https://devloperpath.onrender.com/sitemap.xml

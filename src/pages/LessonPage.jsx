@@ -99,7 +99,7 @@ export default function LessonPage() {
   const updateStage = (newStage) => {
     setStage(newStage);
     if (lesson) {
-      localStorage.setItem(`codepath_stage_${lesson.id}`, newStage);
+      localStorage.setItem(`devloperpath_stage_${lesson.id}`, newStage);
     }
   };
 
@@ -120,7 +120,7 @@ export default function LessonPage() {
     if (lesson.type === 'workshop') {
       if (!currentStep) return;
       
-      const savedDraft = localStorage.getItem(`codepath_draft_${lesson.id}_step_${stepParam}`);
+      const savedDraft = localStorage.getItem(`devloperpath_draft_${lesson.id}_step_${stepParam}`);
       const codeToLoad = savedDraft !== null ? savedDraft : currentStep.starterCode;
       
       setEditorCode(codeToLoad);
@@ -132,10 +132,10 @@ export default function LessonPage() {
       setRunClicked(false);
       setShowSuccessModal(false);
     } else {
-      const savedStage = localStorage.getItem(`codepath_stage_${lesson.id}`) || 'theory';
-      const savedAnswers = JSON.parse(localStorage.getItem(`codepath_selected_answers_${lesson.id}`) || '{}');
-      const savedSubmitted = localStorage.getItem(`codepath_quiz_submitted_${lesson.id}`) === 'true';
-      const savedPassed = localStorage.getItem(`codepath_quiz_passed_${lesson.id}`) === 'true' || isLessonCompleted(lesson.id);
+      const savedStage = localStorage.getItem(`devloperpath_stage_${lesson.id}`) || 'theory';
+      const savedAnswers = JSON.parse(localStorage.getItem(`devloperpath_selected_answers_${lesson.id}`) || '{}');
+      const savedSubmitted = localStorage.getItem(`devloperpath_quiz_submitted_${lesson.id}`) === 'true';
+      const savedPassed = localStorage.getItem(`devloperpath_quiz_passed_${lesson.id}`) === 'true' || isLessonCompleted(lesson.id);
 
       setStage(savedStage);
       setSelectedAnswers(savedAnswers);
@@ -143,7 +143,7 @@ export default function LessonPage() {
       setQuizPassed(savedPassed);
       setQuizError('');
 
-      const savedDraft = localStorage.getItem(`codepath_draft_${lesson.id}`);
+      const savedDraft = localStorage.getItem(`devloperpath_draft_${lesson.id}`);
       const codeToLoad = savedDraft !== null ? savedDraft : lesson.starterCode;
       
       setEditorCode(codeToLoad);
@@ -160,7 +160,7 @@ export default function LessonPage() {
   // Save last visited lesson url to local storage
   useEffect(() => {
     if (lesson) {
-      localStorage.setItem('codepath_last_visited_url', location.pathname + location.search);
+      localStorage.setItem('devloperpath_last_visited_url', location.pathname + location.search);
     }
   }, [location, lesson]);
 
@@ -248,9 +248,9 @@ export default function LessonPage() {
   const handleEditorChange = (value) => {
     setEditorCode(value || '');
     if (lesson.type === 'workshop') {
-      localStorage.setItem(`codepath_draft_${lesson.id}_step_${stepParam}`, value || '');
+      localStorage.setItem(`devloperpath_draft_${lesson.id}_step_${stepParam}`, value || '');
     } else {
-      localStorage.setItem(`codepath_draft_${lesson.id}`, value || '');
+      localStorage.setItem(`devloperpath_draft_${lesson.id}`, value || '');
     }
   };
 
@@ -288,9 +288,9 @@ export default function LessonPage() {
     if (window.confirm(msg)) {
       setEditorCode(starter);
       if (lesson.type === 'workshop') {
-        localStorage.setItem(`codepath_draft_${lesson.id}_step_${stepParam}`, starter);
+        localStorage.setItem(`devloperpath_draft_${lesson.id}_step_${stepParam}`, starter);
       } else {
-        localStorage.setItem(`codepath_draft_${lesson.id}`, starter);
+        localStorage.setItem(`devloperpath_draft_${lesson.id}`, starter);
       }
       setTestResults(
         (lesson.type === 'workshop' ? currentStep.tests : lesson.tests).map((t) => ({ description: t.description, passed: null, error: null }))
@@ -320,7 +320,7 @@ export default function LessonPage() {
   // Quiz submission verification
   const handleQuizSubmit = () => {
     setQuizSubmitted(true);
-    localStorage.setItem(`codepath_quiz_submitted_${lesson.id}`, 'true');
+    localStorage.setItem(`devloperpath_quiz_submitted_${lesson.id}`, 'true');
     setQuizError('');
 
     // Check if every question has an answer and if it is correct
@@ -348,7 +348,7 @@ export default function LessonPage() {
 
     // Passed!
     setQuizPassed(true);
-    localStorage.setItem(`codepath_quiz_passed_${lesson.id}`, 'true');
+    localStorage.setItem(`devloperpath_quiz_passed_${lesson.id}`, 'true');
     // Keep stage as 'quiz' so user can see correct/incorrect feedback
   };
 
@@ -359,7 +359,7 @@ export default function LessonPage() {
     if (quizSubmitted) {
       setQuizSubmitted(false);
       setQuizError('');
-      localStorage.setItem(`codepath_quiz_submitted_${lesson.id}`, 'false');
+      localStorage.setItem(`devloperpath_quiz_submitted_${lesson.id}`, 'false');
     }
 
     setSelectedAnswers(prev => {
@@ -367,7 +367,7 @@ export default function LessonPage() {
         ...prev,
         [qIdx]: optIdx
       };
-      localStorage.setItem(`codepath_selected_answers_${lesson.id}`, JSON.stringify(updated));
+      localStorage.setItem(`devloperpath_selected_answers_${lesson.id}`, JSON.stringify(updated));
       return updated;
     });
   };
