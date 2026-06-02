@@ -22,7 +22,7 @@ export const Navbar = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-none bg-brand-500 border-4 border-black text-black group-hover:bg-brand-600 transition-colors">
             <Code2 className="h-6 w-6 stroke-[3]" />
           </div>
-          <span className="text-sm font-retro uppercase tracking-tight text-white">
+          <span className="text-sm font-retro tracking-tight text-white">
             devloper<span className="text-brand-500">Path</span>
           </span>
         </Link>
